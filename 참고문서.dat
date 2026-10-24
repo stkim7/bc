@@ -15,3 +15,7 @@ COPY --from=builder /usr/share/zoneinfo /usr/share/zoneinfo
 COPY --from=builder /etc/localtime /etc/localtime
 COPY --from=builder /etc/timezone /etc/timezone
 
+LimitNOFILE
+LimitNPROC
+LimitMEMLOCK
+
