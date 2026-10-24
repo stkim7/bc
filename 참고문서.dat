@@ -1,0 +1,17 @@
+[timezone 설정 예제]
+
+FROM debian:bullseye-20260713-slim AS builder
+
+ENV TZ=Asia/Seoul
+
+RUN apt-get update && \
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    echo $TZ > /etc/timezone && \
+    dpkg-reconfigure -f noninteractive tzdata 
+
+FROM dhi.io/elasticsearch:9
+
+COPY --from=builder /usr/share/zoneinfo /usr/share/zoneinfo
+COPY --from=builder /etc/localtime /etc/localtime
+COPY --from=builder /etc/timezone /etc/timezone
+
