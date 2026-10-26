@@ -19,3 +19,9 @@ LimitNOFILE
 LimitNPROC
 LimitMEMLOCK
 
+
+mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.token=squ_your_secret_token_here \
+  -Dsonar.projectKey=my-awesome-project
+
