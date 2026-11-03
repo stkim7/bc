@@ -1,0 +1,25 @@
+<project>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>5.8.0.7211</version> 
+                
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.plexus</groupId>
+                        <artifactId>plexus-utils</artifactId>
+                        <version>4.1.0</version> 
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
+mvn clean verify sonar:sonar \
+  -Dsonar.host.url=https://example.com \
+  -Dsonar.token=sqp_your_token_here \
+  -Dsonar.projectKey=my-unique-project-key \
+  -Dsonar.projectName="My Custom Project Name"
